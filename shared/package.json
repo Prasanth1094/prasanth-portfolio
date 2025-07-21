@@ -1,0 +1,13 @@
+{
+  "name": "@prasanth-portfolio/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'No build step needed for shared utilities'",
+    "test": "echo 'No tests yet'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
