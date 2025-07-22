@@ -17,9 +17,9 @@
     "build:server": "npm run build --workspace=server",
     "build:production": "npm run build:client && npm run build:server",
     "start": "npm run start --workspace=server",
-    "start:production": "NODE_ENV=production npm run start --workspace=server",
+    "start:production": "cross-env NODE_ENV=production npm run start --workspace=server",
     "deploy:build": "npm install && npm run build:client",
-    "deploy:start": "NODE_ENV=production npm run start --workspace=server",
+    "deploy:start": "cross-env NODE_ENV=production npm run start --workspace=server",
     "install:all": "npm install",
     "clean": "npm run clean --workspaces",
     "lint": "npm run lint --workspaces",
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
     "lerna": "^7.4.2"
   }
 }
