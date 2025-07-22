@@ -20,7 +20,7 @@ PORT=10000
 ```
 MONGODB_URI=your_mongodb_connection_string
 ADMIN_EMAIL=your-email@example.com
-CLIENT_URL=https://your-render-app.onrender.com
+CLIENT_URL=https://prasanth-portfolio-fkmi.onrender.com
 ```
 
 ### Email Configuration (if using email service)
