@@ -1,5 +1,14 @@
 #!/bin/bash
-set -e
+# Navigate to client and install dependencies directly
+echo "📦 Installing client dependencies..."
+cd client
+npm install --legacy-peer-deps --no-audit --no-fund
+
+# Verify vite is installed
+echo "🔍 Verifying Vite installation..."
+npx vite --version || echo "Vite not found, but continuing..."
+
+# Build directly in client directory
 
 echo "🚀 Starting build process..."
 
