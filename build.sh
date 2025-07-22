@@ -1,16 +1,15 @@
-# Build script for Render deployment
 #!/bin/bash
+set -e
 
-echo "🚀 Starting Render build process..."
+echo "🚀 Starting build..."
 
-# Install dependencies
+# Clean install for production
 echo "📦 Installing dependencies..."
-npm install
+npm ci
 
-# Build the client
-echo "🔨 Building React client..."
-npm run build:client
+# Build client using workspace command
+echo "🔨 Building client..."
+npm run build --workspace=client
 
-echo "✅ Build completed successfully!"
-echo "📁 Client built to: client/dist/"
-echo "🌐 Server will serve from: server/server.js"
+echo "✅ Build complete!"
+echo "📁 Built files in client/dist/"
