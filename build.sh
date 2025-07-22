@@ -1,15 +1,29 @@
 #!/bin/bash
 set -e
 
-echo "🚀 Starting build..."
+echo "🚀 Starting build process..."
 
-# Clean install for production
+# Set Node.js options for memory and compatibility
+export NODE_OPTIONS="--max-old-space-size=4096"
+
+# Clean install
 echo "📦 Installing dependencies..."
-npm ci
+npm ci --no-audit --no-fund
 
-# Build client using workspace command
-echo "🔨 Building client..."
-npm run build --workspace=client
+# Verify client dependencies
+echo "🔍 Verifying client workspace..."
+npm ls --workspace=client || echo "Dependency tree has issues, continuing..."
 
-echo "✅ Build complete!"
-echo "📁 Built files in client/dist/"
+# Build with verbose output
+echo "🔨 Building client application..."
+npm run build --workspace=client --verbose
+
+# Verify build output
+if [ -d "client/dist" ]; then
+  echo "✅ Build successful!"
+  echo "📁 Build output:"
+  ls -la client/dist/
+else
+  echo "❌ Build failed - no dist directory found"
+  exit 1
+fi
